@@ -10,11 +10,6 @@ def format_num(num, u):
         return f"{num:,.2f}" + u
     return str(num) + u
 
-# def check_input(inp,tem):
-#     try:
-#         inp = float(inp)
-#     except ValueError:
-
 
 def index(request):
     return render(request, 'index.html')
@@ -42,9 +37,18 @@ def length(request):
                 elif n_ == "Centimetres(cm)":
                     num /= 10
                     sym = 'cm'
-                elif n_ == "Decimetres(dm)":
-                    num /= 100
-                    sym = 'dm'
+                elif n_ == "Inches(in)":
+                    num /= 25.4
+                    sym = 'in'
+                elif n_ == 'Foot(ft)':
+                    num /= 304.8
+                    sym = 'ft'
+                elif n_ == 'Yard(yd)':
+                    num /= 914.4
+                    sym = 'yd'
+                elif n_ == 'Mile(mi)':
+                    num /= 1609344
+                    sym = 'mi'
                 elif n_ == "Metres(m)":
                     num /= 1000
                     sym = 'm'
@@ -59,9 +63,18 @@ def length(request):
                 elif n_ == "Centimetres(cm)":
                     num = num
                     sym = 'cm'
-                elif n_ == "Decimetres(dm)":
-                    num /= 10
-                    sym = 'dm'
+                elif n_ == "Inches(in)":
+                    num *= 0.3937
+                    sym = 'in'
+                elif n_ == 'Foot(ft)':
+                    num *= 0.0328084
+                    sym = 'ft'
+                elif n_ == 'Yard(yd)':
+                    num *= 0.0109361
+                    sym = 'yd'
+                elif n_ == 'Mile(mi)':
+                    num *= 0.0000062137
+                    sym = 'mi'
                 elif n_ == "Metres(m)":
                     num /= 100
                     sym = 'm'
@@ -69,23 +82,32 @@ def length(request):
                     num /= 100000
                     sym = 'km'
                 return format_num(num, sym), format_num(num1, 'cm')
-            elif o_ == "Decimetres(dm)":
+            elif o_ == "Inches(in)":
                 if n_ == "Millimeters(mm)":
-                    num *= 100
+                    num *= 25.4
                     sym = 'mm'
                 elif n_ == "Centimetres(cm)":
-                    num *= 10
+                    num *= 2.54
                     sym = 'cm'
-                elif n_ == "Decimetres(dm)":
+                elif n_ == "Inches(in)":
                     num = num
-                    sym = 'dm'
+                    sym = 'in'
                 elif n_ == "Metres(m)":
-                    num /= 10
+                    num *= 0.0254
                     sym = 'm'
                 elif n_ == "Kilometres(km)":
-                    num /= 10000
+                    num *= 0.0000254
                     sym = 'km'
-                return format_num(num, sym), format_num(num1, 'dm')
+                elif n_ == 'Foot(ft)':
+                    num /= 12
+                    sym = 'ft'
+                elif n_ == "Yard(yd)":
+                    num /= 36
+                    sym = 'yd'
+                elif n_ == 'Mile(mi)':
+                    num /= 63360
+                    sym = 'mi'
+                return format_num(num, sym), format_num(num1, 'in')
             elif o_ == "Metres(m)":
                 if n_ == "Millimeters(mm)":
                     num *= 1000
@@ -93,9 +115,18 @@ def length(request):
                 elif n_ == "Centimetres(cm)":
                     num *= 100
                     sym = 'cm'
-                elif n_ == "Decimetres(dm)":
-                    num *= 10
-                    sym = 'dm'
+                elif n_ == "Inches(in)":
+                    num *= 39.3701
+                    sym = 'in'
+                elif n_ == 'Foot(ft)':
+                    num *= 3.28084
+                    sym = 'ft'
+                elif n_ == 'Yard(yd)':
+                    num *= 1.09361
+                    sym = 'yd'
+                elif n_ == 'Mile(mi)':
+                    num /= 1609.344
+                    sym = 'mi'
                 elif n_ == "Metres(m)":
                     num = num
                     sym = 'm'
@@ -110,9 +141,18 @@ def length(request):
                 elif n_ == "Centimetres(cm)":
                     num *= 100000
                     sym = 'cm'
-                elif n_ == "Decimetres(dm)":
-                    num *= 10000
-                    sym = 'dm'
+                elif n_ == "Inches(in)":
+                    num *= 39370.1
+                    sym = 'in'
+                elif n_ == 'Foot(ft)':
+                    num *= 3280.84
+                    sym = 'ft'
+                elif n_ == 'Yard(yd)':
+                    num *= 1093.61
+                    sym = 'yd'
+                elif n_ == 'Mile(mi)':
+                    num *= 0.621371
+                    sym = 'mi'
                 elif n_ == "Metres(m)":
                     num *= 1000
                     sym = 'm'
@@ -120,6 +160,84 @@ def length(request):
                     num = num
                     sym = 'km'
                 return format_num(num, sym), format_num(num1, 'km')
+            elif o_ == 'Foot(ft)':
+                if n_ == "Millimeters(mm)":
+                    num *= 304.8
+                    sym = 'mm'
+                elif n_ == "Centimetres(cm)":
+                    num *= 30.48
+                    sym = 'cm'
+                elif n_ == "Inches(in)":
+                    num *= 12
+                    sym = 'in'
+                elif n_ == 'Foot(ft)':
+                    num = num
+                    sym = 'ft'
+                elif n_ == 'Yard(yd)':
+                    num /= 3
+                    sym = 'yd'
+                elif n_ == 'Mile(mi)':
+                    num /= 5280
+                    sym = 'mi'
+                elif n_ == "Metres(m)":
+                    num *= 0.3048
+                    sym = 'm'
+                elif n_ == "Kilometres(km)":
+                    num *= 0.0003048
+                    sym = 'km'
+                return format_num(num, sym), format_num(num1, 'ft')
+            elif o_ == 'Yard(yd)':
+                if n_ == "Millimeters(mm)":
+                    num *= 914.4
+                    sym = 'mm'
+                elif n_ == "Centimetres(cm)":
+                    num *= 91.44
+                    sym = 'cm'
+                elif n_ == "Inches(in)":
+                    num *= 36
+                    sym = 'in'
+                elif n_ == 'Foot(ft)':
+                    num *= 3
+                    sym = 'ft'
+                elif n_ == 'Yard(yd)':
+                    num = num
+                    sym = 'yd'
+                elif n_ == 'Mile(mi)':
+                    num /= 1760
+                    sym = 'mi'
+                elif n_ == "Metres(m)":
+                    num *= 0.9144
+                    sym = 'm'
+                elif n_ == "Kilometres(km)":
+                    num *= 0.0009144
+                    sym = 'km'
+                return format_num(num, sym), format_num(num1, 'yd')
+            elif o_ == 'Mile(mi)':
+                if n_ == "Millimeters(mm)":
+                    num *= 1609344
+                    sym = 'mm'
+                elif n_ == "Centimetres(cm)":
+                    num *= 160934.4
+                    sym = 'cm'
+                elif n_ == "Inches(in)":
+                    num *= 63360
+                    sym = 'in'
+                elif n_ == 'Foot(ft)':
+                    num *= 5280
+                    sym = 'ft'
+                elif n_ == 'Yard(yd)':
+                    num *= 1760
+                    sym = 'yd'
+                elif n_ == 'Mile(mi)':
+                    num = num
+                    sym = 'mi'
+                elif n_ == "Metres(m)":
+                    num *= 1609.344
+                    sym = 'm'
+                elif n_ == "Kilometres(km)":
+                    num *= 1.609344
+                    sym = 'km'
+                return format_num(num, sym), format_num(num1, 'mi')
 
         ans = convert(len_num, o_unit, n_unit)
         return answer(request, {'ans': ans[0], "num": ans[1], 'path': 'length'})
@@ -195,10 +313,15 @@ def weight(request):
                 elif n_ == "Grammes(g)":
                     num *= 1000
                     sym = 'g'
-                elif n_ == "Tonnes(t)":
-                    num *= 0.001
-                    sym = 't'
-
+                elif n_ == "Milligram(mg)":
+                    num *= 1000000
+                    sym = 'mg'
+                elif n_ == 'Pound(lb)':
+                    num *= 2.20462
+                    sym = 'lb'
+                elif n_ == 'Ounce(oz)':
+                    num *= 35.274
+                    sym = 'oz'
                 return format_num(num, sym), format_num(num1, "kg")
             elif o_ == "Grammes(g)":
                 if n_ == "Kilogramme(kg)":
@@ -207,24 +330,67 @@ def weight(request):
                 elif n_ == "Grammes(g)":
                     num = num
                     sym = 'g'
-                elif n_ == "Tonnes(t)":
-                    num *= 0.000001
-                    sym = 't'
-
-                return format_num(num, sym), format_num(num1, 'g')
-            elif o_ == "Tonnes(t)":
-                if n_ == "Kilogramme(kg)":
+                elif n_ == "Milligram(mg)":
                     num *= 1000
+                    sym = 'mg'
+                elif n_ == 'Pound(lb)':
+                    num /= 453.59237
+                    sym = 'lb'
+                elif n_ == 'Ounce(oz)':
+                    num /= 28.3495
+                    sym = 'oz'
+                return format_num(num, sym), format_num(num1, 'g')
+            elif o_ == "Milligram(mg)":
+                if n_ == "Kilogramme(kg)":
+                    num /= 1000000
                     sym = 'kg'
                 elif n_ == "Grammes(g)":
-                    num *= 1000000
+                    num /= 1000
                     sym = 'g'
-                elif n_ == "Tonnes(t)":
-                    sym = 't'
+                elif n_ == "Milligram(mg)":
+                    sym = 'mg'
                     num = num
-
-                return format_num(num, sym), format_num(num1, 't')
-
+                elif n_ == 'Pound(lb)':
+                    sym = 'lb'
+                    num /= 453592.37
+                elif n_ == 'Ounce(oz)':
+                    sym = 'oz'
+                    num /= 28349.5
+                return format_num(num, sym), format_num(num1, 'mg')
+            elif o_ == 'Pound(lb)':
+                if n_ == "Kilogramme(kg)":
+                    num *= 0.45359237
+                    sym = 'kg'
+                elif n_ == "Grammes(g)":
+                    num *= 453.59237
+                    sym = 'g'
+                elif n_ == "Milligram(mg)":
+                    sym = 'mg'
+                    num *= 453592370
+                elif n_ == 'Pound(lb)':
+                    sym = 'lb'
+                    num = num
+                elif n_ == 'Ounce(oz)':
+                    sym = 'oz'
+                    num *= 16
+                return format_num(num, sym), format_num(num1, 'lb')
+            elif o_ == 'Ounce(oz)':
+                if n_ == "Kilogramme(kg)":
+                    num *= 0.0283495
+                    sym = 'kg'
+                elif n_ == "Grammes(g)":
+                    num *= 28.3495
+                    sym = 'g'
+                elif n_ == "Milligram(mg)":
+                    sym = 'mg'
+                    num *= 28349.5
+                elif n_ == 'Pound(lb)':
+                    sym = 'lb'
+                    num /= 16
+                elif n_ == 'Ounce(oz)':
+                    sym = 'oz'
+                    num = num
+                return format_num(num, sym), format_num(num1, 'oz')
         ans = convert(weight_num, o_unit, n_unit)
 
         return answer(request, {'ans': ans[0], "num": ans[1],'path':'weight'})

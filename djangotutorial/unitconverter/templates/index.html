@@ -21,9 +21,9 @@
         <p ><strong>UNIT CONVERTER</strong></p>
         {% endblock %}
         <ul class="actions">
-            <li><a href="{% url 'length' %}" class="button {% if request.path == '/unitconverter/length/' %}primary{% endif %} large">Length</a></li>
-            <li><a href="{% url 'weight' %}" class="button {% if request.path == '/unitconverter/weight/' %}primary{% endif %} large">Weight</a></li>
-            <li><a href="{% url 'temp' %}" class="button {% if request.path == '/unitconverter/temp/' %}primary{% endif %} large">Temperature</a></li>
+            <li><a href="{% url 'length' %}" class="button {% if request.path == '/length/' %}primary{% endif %} large">Length</a></li>
+            <li><a href="{% url 'weight' %}" class="button {% if request.path == '/weight/' %}primary{% endif %} large">Weight</a></li>
+            <li><a href="{% url 'temp' %}" class="button {% if request.path == '/temp/' %}primary{% endif %} large">Temperature</a></li>
         </ul>
 
 
