@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% block title %} Weight Converter {% endblock %}
+{% block h1 %}<p ><strong>Weight Converter</strong></p>{% endblock %}
+{% block content %}
+<h2>Here to convert weights</h2>
+        <div class="container">
+            <form method="POST" action="{% url 'weight' %}">
+                {% csrf_token %}
+        <div class="row g-3">
+        <div class="col-md-5">
+
+              <label for="org" class="form-label">Weight to convert </label>
+              <input type="number" class="form-control" id="org" placeholder="" required="" name="weight-num">
+              <div class="invalid-feedback">
+                Invalid Input! Enter a number.
+              </div>
+            </div>
+        <div class="col-md-3">
+              <label for="orgUnit" class="form-label">Unit</label>
+              <select class="form-select" id="orgUnit" required="" name="ounit">
+                <option id="g">Grammes(g)</option>
+                <option id ="kg">Kilogramme(kg) </option>
+                <option id="t">Tonnes(t)</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a unit
+              </div>
+            </div>
+
+            <div class="col-md-5">
+                 <label for="orgUnit" class="form-label">Convert to</label>
+              <select class="form-select" id="newUnit" required="" name="nunit">
+                <option id="Ng">Grammes(g)</option>
+                <option id ="Nkg">Kilogramme(kg) </option>
+                <option id="Nt">Tonnes(t)</option>
+              </select>
+
+            </div>
+        </div>
+        <div style="height:30px"><br></div>
+            <button type="submit" class="button primary large">Convert</button>
+                <div class="invalid-feedback">
+                Please select a unit
+              </div>
+            </form>
+        </div>
+{% endblock %}

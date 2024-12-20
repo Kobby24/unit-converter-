@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% block title %} Temperature Converter {% endblock %}
+{% block h1 %}<p ><strong>Temperature Converter</strong></p>{% endblock %}
+{% block content %}
+<h2>Here to convert Temperature</h2>
+<div class="container">
+        <form method="POST" action="{% url 'temp' %}">
+            {% csrf_token %}
+        <div class="row g-3">
+        <div class="col-md-5">
+              <label for="org" class="form-label">Temperature to convert </label>
+              <input type="number" class="form-control" id="org" placeholder="" required="" name="temp-num">
+              <div class="invalid-feedback">
+                Invalid Input! Enter a number.
+              </div>
+            </div>
+        <div class="col-md-3">
+              <label for="orgUnit" class="form-label">Unit</label>
+              <select class="form-select" id="orgUnit" required="" name="ounit">
+                <option id="K">Kelvin(K)</option>
+                <option id ="C">Celsius(C) </option>
+                <option id="F">Fahrenheit(F) </option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a unit
+              </div>
+            </div>
+
+            <div class="col-md-5">
+                <label for="orgUnit" class="form-label">Convert to</label>
+              <select class="form-select" id="newUnit" required="" name = "nunit">
+                <option id="NK">Kelvin(K)</option>
+                <option id ="NC">Celsius(C) </option>
+                <option id="NF">Fahrenheit(F) </option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a unit
+              </div>
+            </div>
+        </div>
+            <div style="height:30px"><br></div>
+            <button type="submit" class="button primary large">Convert</button>
+
+        </form>
+        </div>
+{% endblock %}

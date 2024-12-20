@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block title %} Length Converter {% endblock %}
+{% block h1 %}<p ><strong>Length Converter</strong></p>{% endblock %}
+{% block content %}
+<h2>Here to convert Length</h2>
+<div class="container">
+        <form method="POST" action="{% url 'length' %}">
+            {% csrf_token %}
+        <div class="row g-3">
+        <div class="col-md-5">
+
+              <label for="org" class="form-label">Length to convert </label>
+              <input type="number" class="form-control" id="org" placeholder="" required="" name="len-num">
+              <div class="invalid-feedback">
+                Invalid Input! Enter a number.
+              </div>
+            </div>
+        <div class="col-md-3">
+              <label for="orgUnit" class="form-label">Unit</label>
+              <select class="form-select" id="orgUnit" required="" name="ounit">
+                <option id="mm">Millimeters(mm)</option>
+                <option id ="cm">Centimetres(cm) </option>
+                <option id="dm">Decimetres(dm)</option>
+                <option id="m">Metres(m)</option>
+                <option id="km">Kilometres(km)</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a unit
+              </div>
+            </div>
+            <p></p>
+            <div class="col-md-5">
+              <label for="orgUnit" class="form-label">Convert to</label>
+              <select class="form-select" id="newUnit" required="" name="nunit">
+                <option id="Nmm">Millimeters(mm)</option>
+                <option id ="Ncm">Centimetres(cm) </option>
+                <option id="Ndm">Decimetres(dm)</option>
+                <option id="Nm">Metres(m)</option>
+                <option id="Nkm">Kilometres(km)</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a unit
+              </div>
+            </div>
+        </div>
+            <div style="height:30px"><br></div>
+            <button type="submit" class="button primary large">Convert</button>
+        </form>
+        </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container">
+<h1 style="font-family: 'Caveat', serif; font-optical-sizing: auto;font-weight: 600;font-style: normal;"><strong>Results  of  your  calculation</strong></h1>
+    <p style="font-size:32px;font-family: 'Caveat', serif; font-optical-sizing: auto;font-weight: 600;font-style: normal;">{{num}} = {{ans}}</p>
+
+    <a class="button primary large" href="{% url path %}" role="button">Reset</a>
+</div>
+{% endblock %}
